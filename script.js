@@ -10,10 +10,11 @@ let timerDisplay = document.getElementById('timer');
 
 Notification.requestPermission();
 
-function sendNotification(v1, v2) {
-    var title = v1;
-    var body = v2;
-    new Notification(title, { body });
+function sendNotification(title, content) {
+    const v = new Notification(title, { content });
+    v.onclick = (e) => {
+        v.close();
+    }
 }
 
 function timer(status) {
@@ -22,7 +23,7 @@ function timer(status) {
     else if(status == false) {
         timerDisplay.style.display = "none";
     } else {
-        console.log("timer function called with unexpected parameter!");
+        console.error("timer function called with unexpected parameter!");
     }
 }
 
@@ -32,7 +33,7 @@ function start(status) {
     else if(status == false) {
         startButton.style.display = "none";
     } else {
-        console.log("start function called with unexpected parameter!");
+        console.error("start function called with unexpected parameter!");
     }
 }
 
@@ -42,7 +43,7 @@ function pause(status) {
     else if(status == false) {
         pauseButton.style.display = "none";
     } else {
-        console.log("pause function called with unexpected parameter!");
+        console.error("pause function called with unexpected parameter!");
     }
 }
 
@@ -52,7 +53,7 @@ function resume(status) {
     else if(status == false) {
         resumeButton.style.display = "none";
     } else {
-        console.log("resume function called with unexpected parameter!");
+        console.error("resume function called with unexpected parameter!");
     }
 }
 
@@ -62,7 +63,7 @@ function reset(status) {
     else if(status == false) {
         resetButton.style.display = "none";
     } else {
-        console.log("reset function called with unexpected parameter!");
+        console.error("reset function called with unexpected parameter!");
     }
 }
 
@@ -72,7 +73,7 @@ function minput(status) {
     else if(status == false) {
         minutesInput.style.display = "none";
     } else {
-        console.log("minput function called with unexpected parameter!");
+        console.error("minput function called with unexpected parameter!");
     }
 }
 
